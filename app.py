@@ -6,7 +6,13 @@ from currency import format_currency
 available_currencies = get_currency_codes()
 
 # UI elementsstreamlit run
+UTS_logo = "3016.png"
+st.image(image=UTS_logo)
+
 st.title("Currency Converter")
+st.subheader("BY: Siddharth Arora (25106954)")
+
+
 
 # Input for the amount
 amount = st.number_input("Enter the amount to convert", min_value=0.0)
