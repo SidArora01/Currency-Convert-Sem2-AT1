@@ -7,12 +7,21 @@ from datetime import date
 available_currencies = get_currency_codes()
 
 # UI elementsstreamlit run
-UTS_logo = "3016.png"
-st.image(image=UTS_logo)
+UTS_logo = "UTS-logo.jpg"
+col1, col2, col3 = st.columns([1, 2, 1])
 
-st.title("Currency Converter")
-st.subheader("BY: Siddharth Arora (25106954)")
+# Display the image in the center column (col2)
+with col2:
+    st.image(UTS_logo, use_column_width=True)
 
+
+
+col1, col2, col3 = st.columns([1, 3, 1])
+
+# Display the image in the center column (col2)
+with col2:
+    st.title("Currency Converter")
+    st.subheader("BY: Siddharth Arora (25106954)")
 
 
 # Input for the amount
@@ -35,14 +44,15 @@ if st.button("Get Latest Rate"):
     st.write(f" The inverse rate is {inverse_rate}")
     
 # Date input for historical conversion
-selected_date = st.date_input("Select a date (optional)", value=None)
+selected_date = st.date_input("Select a date for historical conversion", value=None)
 
 # Button to fetch conversion rate
 if st.button("Convert"):
     conversion_rate = get_conversion_rate(from_currency, to_currency, selected_date)
     if conversion_rate:
         converted_amount = amount * conversion_rate
-        st.write(f"Conversion rate: {conversion_rate}")
-        st.write(f"Converted amount: {format_currency(converted_amount, to_currency)}")
+        st.write(f"Conversion Rate on {selected_date} from {from_currency} to {to_currency} was {conversion_rate}")
+        st.write(f" So {amount} in {from_currency} corresponds to {converted_amount} in {to_currency}")
+        st.write(f" The inverse rate is {inverse_rate}")
     else:
         st.write("Failed to fetch conversion rate.")
