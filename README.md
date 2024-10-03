@@ -1,8 +1,8 @@
 # <project title>
 
 ## Author
-Name: <Siddharth Arora>
-Student ID: <25106954>
+Name: <>
+Student ID: <>
 
 ## Description
 <What your application does>
@@ -22,3 +22,6 @@ Student ID: <25106954>
 
 ## Citations
 <Mention authors and provide links code you source externally>
+
+
+

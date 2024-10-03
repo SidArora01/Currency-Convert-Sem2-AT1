@@ -46,9 +46,7 @@ def get_latest_rates(from_currency, to_currency, amount):
         return None, None
 
 def get_historical_rate(from_currency, to_currency, from_date, amount):
-    """
-    Get the historical conversion rate for the provided date.
-    """
+   
     url = get_frankfurter_historical_endpoint(from_currency, to_currency, from_date)
     status_code, response = get_url(url)  
 
@@ -56,8 +54,10 @@ def get_historical_rate(from_currency, to_currency, from_date, amount):
         try:
             data = json.loads(response)
             rate = data['rates'][to_currency]
+            print(rate)
             return rate
         except (json.JSONDecodeError, KeyError):
             return None
     else:
         return None
+        
