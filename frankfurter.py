@@ -13,9 +13,6 @@ def get_frankfurter_historical_endpoint(from_currency, to_currency, date):
 
 # Define main functions for currency data
 def get_currencies_list():
-    """
-    Function that calls the relevant API endpoint to get the list of available currencies.
-    """
     url = get_frankfurter_currency_list_endpoint()
     status_code, response = get_url(url)  # Unpack the response
 
@@ -28,9 +25,6 @@ def get_currencies_list():
         return None
 
 def get_latest_rates(from_currency, to_currency, amount):
-    """
-    Get the latest conversion rate between the provided currencies.
-    """
     url = get_frankfurter_latest_endpoint(from_currency, to_currency)
     status_code, response = get_url(url)  # Unpack the response
 
@@ -46,7 +40,6 @@ def get_latest_rates(from_currency, to_currency, amount):
         return None, None
 
 def get_historical_rate(from_currency, to_currency, from_date, amount):
-   
     url = get_frankfurter_historical_endpoint(from_currency, to_currency, from_date)
     status_code, response = get_url(url)  
 
