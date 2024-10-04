@@ -51,13 +51,13 @@ Student ID: 25106954</h3>
 2. In the terminal execute the following command: streamlit run app.py
 
 ## Project Structure
-
+```
 ├── app.py                # Main application script
 ├── api.py                # API interaction handler
 ├── frankfurter.py         # Functions for working with Frankfurter API
 ├── currency.py           # Helper functions for formatting currencies
-├── requirements.txt      # List of required packages
 └── README.md             # Project documentation
+```
 
 ### File Description
 
