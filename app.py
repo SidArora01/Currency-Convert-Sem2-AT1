@@ -1,19 +1,10 @@
 import streamlit as st
-from api import get_url  
 from frankfurter import get_latest_rates, get_historical_rate, get_currencies_list  
-from currency import format_currency, round_rate, reverse_rate  
+from currency import  round_rate, reverse_rate, format_output
 from datetime import date
 
 
-
-def fetch_currency_codes():
-    currencies = get_currencies_list()
-    if currencies:
-        return list(currencies.keys())
-    return []
-
-
-available_currencies = fetch_currency_codes()
+available_currencies = get_currencies_list()
 
 UTS_logo = "UTS-logo.jpg"
 col1, col2, col3 = st.columns([1, 2, 1])
@@ -40,9 +31,7 @@ if st.button("Get Latest Rate"):
         converted_amount = amount * conversion_rate
         inverse_rate = reverse_rate(conversion_rate) 
         rounded_conversion_rate = round_rate(conversion_rate)  
-        st.write(f"Conversion Rate on {rate_date} from {from_currency} to {to_currency} was {rounded_conversion_rate}")
-        st.write(f"So, {format_currency(amount, from_currency)} equals {format_currency(converted_amount, to_currency)}")
-        st.write(f"The inverse rate is {round_rate(inverse_rate)}")
+        st.write(format_output(amount= amount, date=latest_date, from_currency=from_currency, to_currency=to_currency,rate=rounded_conversion_rate, inverse_rate=inverse_rate))
     else:
         st.write("Failed to fetch the latest conversion rate.")
 
@@ -56,9 +45,7 @@ if st.button("Convert"):
             converted_amount = amount * conversion_rate
             inverse_rate = reverse_rate(conversion_rate)  
             rounded_conversion_rate = round_rate(conversion_rate)  
-            st.write(f"Conversion Rate on {selected_date} from {from_currency} to {to_currency} was {rounded_conversion_rate}")
-            st.write(f"So, {format_currency(amount, from_currency)} equals {format_currency(converted_amount, to_currency)}")
-            st.write(f"The inverse rate is {round_rate(inverse_rate)}")
+            st.write(format_output(amount= amount, date=selected_date, from_currency=from_currency, to_currency=to_currency,rate=rounded_conversion_rate, inverse_rate=inverse_rate))
         else:
             st.write("Failed to fetch conversion rate for the selected date.")
     else:
