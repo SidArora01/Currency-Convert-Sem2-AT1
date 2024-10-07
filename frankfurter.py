@@ -1,32 +1,29 @@
 import json
 from api import get_url
 
-# Define endpoint functions
-def get_frankfurter_currency_list_endpoint():
-    return "https://api.frankfurter.app/currencies"
+#Base URL defined here as it is the common API part, helps ensure maintainence and consistency
+BASE_URL = "https://api.frankfurter.app"
 
-def get_frankfurter_latest_endpoint(from_currency, to_currency):
-    return f"https://api.frankfurter.app/latest?from={from_currency}&to={to_currency}"
 
-def get_frankfurter_historical_endpoint(from_currency, to_currency, date):
-    return f"https://api.frankfurter.app/{date}?from={from_currency}&to={to_currency}"
-
-# Define main functions for currency data
+#Fetches the list of Currencies from the API Endpoint
 def get_currencies_list():
-    url = get_frankfurter_currency_list_endpoint()
-    status_code, response = get_url(url)  # Unpack the response
+    url = f"{BASE_URL}/currencies"
+    status_code, response = get_url(url)  
 
     if status_code == 200:
         try:
-            return json.loads(response)  # Return parsed JSON response
+            return list(json.loads(response).keys())
         except json.JSONDecodeError:
             return None
     else:
         return None
 
-def get_latest_rates(from_currency, to_currency, amount):
-    url = get_frankfurter_latest_endpoint(from_currency, to_currency)
-    status_code, response = get_url(url)  # Unpack the response
+
+#Fetches Latest Exchnage Rates from given pair of Currencies
+#Error Handling done in try and except blocks
+def get_latest_rates(from_currency, to_currency):
+    url = f"{BASE_URL}/latest?from={from_currency}&to={to_currency}"
+    status_code, response = get_url(url)
 
     if status_code == 200:
         try:
@@ -39,8 +36,11 @@ def get_latest_rates(from_currency, to_currency, amount):
     else:
         return None, None
 
-def get_historical_rate(from_currency, to_currency, from_date, amount):
-    url = get_frankfurter_historical_endpoint(from_currency, to_currency, from_date)
+
+#Fetches Exchnage Rates from given pair of Currencies for a given date in the past
+#Error Handling done in try and except blocks
+def get_historical_rate(from_currency, to_currency, from_date):
+    url = f"{BASE_URL}/{from_date}?from={from_currency}&to={to_currency}"
     status_code, response = get_url(url)  
 
     if status_code == 200:
