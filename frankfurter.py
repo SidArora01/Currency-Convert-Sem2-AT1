@@ -21,7 +21,7 @@ def get_currencies_list():
 
 #Fetches Latest Exchnage Rates from given pair of Currencies
 #Error Handling done in try and except blocks
-def get_latest_rates(from_currency, to_currency):
+def get_latest_rates(from_currency, to_currency, amount):
     url = f"{BASE_URL}/latest?from={from_currency}&to={to_currency}"
     status_code, response = get_url(url)
 
@@ -39,7 +39,7 @@ def get_latest_rates(from_currency, to_currency):
 
 #Fetches Exchnage Rates from given pair of Currencies for a given date in the past
 #Error Handling done in try and except blocks
-def get_historical_rate(from_currency, to_currency, from_date):
+def get_historical_rate(from_currency, to_currency, from_date, amount):
     url = f"{BASE_URL}/{from_date}?from={from_currency}&to={to_currency}"
     status_code, response = get_url(url)  
 

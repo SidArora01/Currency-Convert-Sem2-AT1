@@ -18,15 +18,16 @@ Student ID: 25106954</h3>
 - Data is refreshed everyday at 1600 CET (12 AM AEST (Syd)) 
 
 ### Challenges
-- Integration of external APIs and error handling
-- Integrating raw data into the application to display a more user friendly output
+- Integration of external APIs and error handling. 
+- Integrating raw data into the application to display it in a more user friendly output.
 - Frankfurter being an open source API can lead to a lack of technical support and potential compatibility issues in the future.
+- Designing a smooth user interface to make it easy to use for casual users as well as detailed one for more professional users.
 
 ### Future Features
 - More information in the form of trend visualisations
-- Realtime data updates for an extremely accurate conversion
-- A profile based system where users can save and bookmark their favourite currencies 
-- More diverse currency options to accomodate a wider user base
+- Realtime data updates for an extremely accurate conversion.
+- A profile based system where users can save and bookmark their favourite currencies.
+- More diverse currency options to accomodate a wider user base.
 
 
 ## How to Setup
@@ -35,7 +36,10 @@ Student ID: 25106954</h3>
 1. Create a virtual environment(venv) to make sure there is no dependency clash with other projects.
 2. Install necessary packages and python libraries (streamlit, json, api).
 3. Ideate and design a project structure.
-4. Start in the venv
+4. Start in the venv after activating
+
+
+![Venv%20Activation](Images/Venv%20Screenshot.png)
 
 **Python Version**:  
 - Python 3.12.3
@@ -50,6 +54,9 @@ Student ID: 25106954</h3>
 1. After the program is set up in the environment go to the terminal
 2. In the terminal execute the following command: streamlit run app.py
 3. This should automatically open the web-application in the browser, if not the terminal will have a url which the user can copy and paste it in the browser
+
+![Run%20Command](Images/Run.png)
+
 
 ## Project Structure
 ```

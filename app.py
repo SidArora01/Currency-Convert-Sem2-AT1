@@ -35,7 +35,7 @@ else:
 #Error Handling if No Conversion Rate is returned
 if st.button("Get Latest Conversion Rate"):
     latest_date = date.today()
-    rate_date, conversion_rate = get_latest_rates(from_currency, to_currency)  
+    rate_date, conversion_rate = get_latest_rates(from_currency, to_currency, amount)  
     
     if conversion_rate:
         converted_amount = amount * conversion_rate
@@ -57,7 +57,7 @@ if st.button("Get Historical Conversion Rate"):
     else:
         today = date.today()
         if selected_date <= today:
-            conversion_rate = get_historical_rate(from_currency, to_currency, selected_date.strftime("%Y-%m-%d"))  
+            conversion_rate = get_historical_rate(from_currency, to_currency, selected_date.strftime("%Y-%m-%d"), amount)  
             if conversion_rate:
                 converted_amount = amount * conversion_rate
                 inverse_rate = reverse_rate(conversion_rate)  
