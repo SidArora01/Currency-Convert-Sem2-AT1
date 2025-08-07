@@ -96,3 +96,12 @@ Below the files are explained with all the functions defined to garner a better 
 1. **Frankfurter API** :  https://www.frankfurter.app/
 2. **How to write better markdown files** : https://dev.to/soumikdhar/how-to-write-better-cleaner-markdown-the-definitive-guide-3fif
 3. **GET Requests** : https://www.w3schools.com/tags/ref_httpmethods.asp
+
+
+## ⚠️ License and Usage
+
+This repository is public for transparency and educational purposes only.
+
+You are **NOT allowed** to use, copy, modify, or distribute any part of this code without explicit written permission from the author.
+
+© [Siddharth Arora], [2024]. All rights reserved.
